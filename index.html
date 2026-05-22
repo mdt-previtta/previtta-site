@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Previtta Assistencial | Medicina do Trabalho</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#f4f7f8;
+      color:#1f2937;
+      line-height:1.6;
+    }
+
+    :root{
+      --primary:#009fb7;
+      --dark:#0f172a;
+      --light:#ffffff;
+      --gray:#e5e7eb;
+    }
+
+    header{
+      background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px;
+      color:white;
+    }
+
+    .hero{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:20px;
+      font-weight:700;
+    }
+
+    .hero p{
+      font-size:1.2rem;
+      margin-bottom:35px;
+      color:#f1f5f9;
+    }
+
+    .buttons{
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 30px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      background:#02879b;
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      border:2px solid white;
+      color:white;
+    }
+
+    .btn-outline:hover{
+      background:white;
+      color:var(--dark);
+    }
+
+    section{
+      padding:80px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:2.5rem;
+      color:var(--dark);
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#64748b;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:var(--primary);
+    }
+
+    .plan-section{
+      background:#0f172a;
+      color:white;
+      border-radius:30px;
+    }
+
+    .plan-content{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .plan-content img{
+      width:100%;
+      border-radius:25px;
+    }
+
+    .price-box{
+      background:rgba(255,255,255,0.08);
+      padding:25px;
+      border-radius:20px;
+      margin-top:20px;
+    }
+
+    .map-section{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    iframe{
+      width:100%;
+      height:350px;
+      border:none;
+      border-radius:20px;
+    }
+
+    footer{
+      background:#020617;
+      color:white;
+      padding:40px 10%;
+      text-align:center;
+    }
+
+    .whatsapp-float{
+      position:fixed;
+      width:65px;
+      height:65px;
+      bottom:25px;
+      right:25px;
+      background:#25d366;
+      color:white;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      font-size:30px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.3);
+      z-index:999;
+    }
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:2.5rem;
+      }
+
+      .plan-content,
+      .map-section{
+        grid-template-columns:1fr;
+      }
+
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <h1>Previtta Assistencial</h1>
+    <p>
+      Medicina do Trabalho, Saúde Ocupacional e Plano Assistencial
+      com atendimento humanizado em São Gabriel/RS.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary"
+         href="https://wa.me/5555992053993"
+         target="_blank">
+         Falar no WhatsApp
+      </a>
+
+      <a class="btn btn-outline" href="#planos">
+         Conhecer o Plano
+      </a>
+    </div>
+  </div>
+</header>
+
+<section>
+
+  <div class="section-title">
+    <h2>Serviços de Medicina do Trabalho</h2>
+    <p>
+      Soluções completas em saúde ocupacional e segurança do trabalho.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Exames Ocupacionais</h3>
+      <p>
+        Admissional, demissional, periódico, retorno ao trabalho e mudança de função.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>PCMSO</h3>
+      <p>
+        Programa completo de controle médico de saúde ocupacional.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>PGR</h3>
+      <p>
+        Gestão de riscos ocupacionais conforme legislação vigente.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>LTCAT</h3>
+      <p>
+        Laudo técnico das condições ambientais do trabalho.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>eSocial SST</h3>
+      <p>
+        Envio e gerenciamento das informações SST via plataforma SGG.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Gestão SST</h3>
+      <p>
+        Gestão completa de saúde e segurança ocupacional para empresas.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="planos">
+
+  <div class="plan-section">
+    <div class="plan-content">
+
+      <div class="plan-text">
+
+        <h2>Plano Assistencial Previtta</h2>
+
+        <p class="plan-description">
+          Descontos de 30% a 60% em consultas, exames e especialidades
+          médicas em São Gabriel, Rosário do Sul e Santa Maria.
+        </p>
+
+        <div class="price-box">
+          <h3>Plano Familiar</h3>
+          <p>R$ 30,00/mês</p>
+          <small>Até 3 pessoas inclusas</small>
+        </div>
+
+        <div class="price-box">
+          <h3>Plano Individual</h3>
+          <p>R$ 20,00/mês</p>
+        </div>
+
+        <div class="plan-button">
+          <a class="btn btn-primary"
+             href="https://wa.me/5555992053993"
+             target="_blank">
+             Solicitar Cadastro
+          </a>
+        </div>
+
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop">
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<style>
+
+.plan-text{
+  padding:20px 10px 20px 35px;
+}
+
+.plan-text h2{
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.plan-description{
+  margin-bottom:25px;
+  max-width:500px;
+}
+
+.price-box{
+  background:rgba(255,255,255,0.08);
+  padding:25px;
+  border-radius:20px;
+  margin-top:20px;
+  max-width:500px;
+}
+
+.plan-button{
+  margin-top:35px;
+}
+
+@media(max-width:900px){
+
+  .plan-text{
+    padding:10px;
+  }
+
+  .price-box{
+    max-width:100%;
+  }
+
+}
+
+</style>
+
+<section>
+
+  <div class="section-title">
+    <h2>Especialidades</h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="card"><h3>Psicologia</h3></div>
+    <div class="card"><h3>Fisioterapia</h3></div>
+    <div class="card"><h3>Odontologia</h3></div>
+    <div class="card"><h3>Ginecologia</h3></div>
+    <div class="card"><h3>Traumatologia</h3></div>
+    <div class="card"><h3>Pilates</h3></div>
+    <div class="card"><h3>Estética</h3></div>
+    <div class="card"><h3>Massoterapia</h3></div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="map-section">
+
+    <div>
+      <h2>Como Chegar</h2>
+
+      <p style="margin-top:20px;">
+        Rua General Mallet, 100<br>
+        Centro — São Gabriel/RS
+      </p>
+
+      <div style="margin-top:30px;">
+        <a class="btn btn-primary"
+           target="_blank"
+           href="https://www.google.com/maps/dir/?api=1&destination=Rua+General+Mallet+100+Sao+Gabriel+RS">
+           Gerar Rota
+        </a>
+      </div>
+
+    </div>
+
+    <div>
+
+      <iframe
+        src="https://www.google.com/maps?q=Rua+General+Mallet+100+São+Gabriel+RS&output=embed">
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <h3>Previtta Assistencial</h3>
+
+  <p style="margin-top:15px;">
+    Segurança e Medicina do Trabalho
+  </p>
+
+  <p style="margin-top:15px;">
+    WhatsApp: (55) 99205-3993
+  </p>
+
+  <p>
+    São Gabriel - RS
+  </p>
+
+</footer>
+
+<a class="whatsapp-float"
+   href="https://wa.me/5555992053993"
+   target="_blank">
+   ✆
+</a>
+
+</body>
+</html>
