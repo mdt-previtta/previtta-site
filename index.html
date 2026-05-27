@@ -397,24 +397,149 @@
 <section>
 
   <div class="section-title">
-    <h2>Especialidades em nossa Clínica</h2>
+    <h2>Especialidades em Nossa Sede</h2>
+    <p>
+      Conheça os profissionais parceiros da Previtta.
+    </p>
   </div>
 
   <div class="cards">
 
-    <div class="card"><h3>Psicologia</h3></div>
-    <div class="card"><h3>Fisioterapia</h3></div>
-    <div class="card"><h3>Odontologia</h3></div>
-    <div class="card"><h3>Ginecologia</h3></div>
-    <div class="card"><h3>Traumatologia</h3></div>
-    <div class="card"><h3>Pilates</h3></div>
-    <div class="card"><h3>Estética</h3></div>
-    <div class="card"><h3>Massoterapia</h3></div>
+    <!-- Psicologia -->
+    <div class="card specialty-card">
+      <h3>Psicologia</h3>
+
+      <div class="specialty-info">
+        <p><strong>Mirlene Schineider</strong></p>
+        <p>📞 (55) 99106-4892</p>
+      </div>
+    </div>
+
+    <!-- Fisioterapia -->
+    <div class="card specialty-card">
+      <h3>Fisioterapia</h3>
+
+      <div class="specialty-info">
+        <p><strong>Amanda Biscaglia</strong></p>
+        <p>📞 (55) 99674-8268</p>
+
+        <br>
+
+        <p><strong>Jaime Simon</strong></p>
+        <p>📞 (55) 98405-8841</p>
+      </div>
+    </div>
+
+    <!-- Odontologia -->
+    <div class="card specialty-card">
+      <h3>Odontologia</h3>
+
+      <div class="specialty-info">
+        <p><strong>Alessandro Salatino</strong></p>
+        <p>📞 (55) 3232-5345</p>
+      </div>
+    </div>
+
+    <!-- Ginecologia -->
+    <div class="card specialty-card">
+      <h3>Ginecologia</h3>
+
+      <div class="specialty-info">
+        <p><strong>Paula Salatino</strong></p>
+        <p>📞 (55) 3232-5345</p>
+      </div>
+    </div>
+
+    <!-- Traumatologia -->
+    <div class="card specialty-card">
+      <h3>Traumatologia</h3>
+
+      <div class="specialty-info">
+
+        <p><strong>Luiz Cláudio Acosta</strong></p>
+        <p>📞 (55) 3232-3438</p>
+        <p>📱 (55) 99612-6056</p>
+
+        <br>
+
+        <p><strong>Raio X Traumoclínica</strong></p>
+        <p>📞 (55) 3232-3438</p>
+        <p>📱 (55) 99672-3117</p>
+
+      </div>
+    </div>
+
+    <!-- Pilates -->
+    <div class="card specialty-card">
+      <h3>Pilates</h3>
+
+      <div class="specialty-info">
+        <p><strong>Amanda Biscaglia</strong></p>
+        <p>📞 (55) 99674-8268</p>
+      </div>
+    </div>
+
+    <!-- Estética e Massoterapia -->
+    <div class="card specialty-card">
+      <h3>Estética e Massoterapia</h3>
+
+      <div class="specialty-info">
+        <p><strong>Casserine Ferreira</strong></p>
+        <p>📞 (55) 99661-4755</p>
+      </div>
+    </div>
 
   </div>
 
 </section>
 
+<style>
+
+.specialty-card{
+  position:relative;
+  overflow:hidden;
+  min-height:120px;
+  transition:0.3s;
+}
+
+.specialty-card h3{
+  transition:0.3s;
+}
+
+.specialty-info{
+  margin-top:20px;
+  opacity:0;
+  max-height:0;
+  overflow:hidden;
+  transition:all 0.4s ease;
+  color:#334155;
+  font-size:0.95rem;
+}
+
+.specialty-card:hover .specialty-info{
+  opacity:1;
+  max-height:500px;
+}
+
+.specialty-card:hover{
+  transform:translateY(-6px);
+}
+
+.specialty-info p{
+  margin-bottom:6px;
+}
+
+@media(max-width:768px){
+
+  .specialty-info{
+    opacity:1;
+    max-height:500px;
+    margin-top:15px;
+  }
+
+}
+
+</style>
 <section>
 
   <div class="map-section">
