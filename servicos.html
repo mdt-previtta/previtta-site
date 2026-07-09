@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | Previtta Assistencial</title>
+    <!-- Google Fonts e FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1793a6;
+            --primary-hover: #137a8a;
+            --dark: #0f172a;
+            --light-bg: #f4f7f8;
+            --text-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* 1. BARRA DE NAVEGAÇÃO SUPERIOR */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+        }
+
+        .btn-nav-wa {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border-bottom: none !important;
+            font-weight: 600 !important;
+        }
+
+        /* 2. CONTEÚDO PRINCIPAL (SERVIÇOS) */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .page-title p {
+            color: #64748b;
+            font-size: 1.05rem;
+        }
+
+        .section-category h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+
+        .section-category h2 i {
+            color: var(--primary);
+        }
+
+        /* GRADE DE SERVIÇOS (Foco em Leitura de Tópicos) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 30px 25px;
+            display: flex;
+            gap: 20px;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        .service-icon-area {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background-color: #f0fdfa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Impede o ícone de amassar em telas menores */
+            border: 1px solid #cbd5e1;
+        }
+
+        .service-icon-area i {
+            font-size: 26px;
+            color: var(--primary);
+        }
+
+        .service-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* CARD DE ADVERTÊNCIA / CTA CENTRAL */
+        .cta-box {
+            background-color: #ffffff;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .cta-text h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .cta-text p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .btn-cta-services {
+            background-color: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-cta-services:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* 3. RODAPÉ */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 30px 5%;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 3px solid var(--primary);
+            margin-top: 60px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .cta-box {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+            <img src="https://i.imgur.com/YSohsWZ.jpeg" alt="Previtta Assistencial">
+            </a>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="servicos.html" class="active">Serviços</a></li>
+            <li class="nav-item"><a href="especialidades.html">Especialidades</a></li>
+            <li class="nav-item"><a href="plano.html">Plano</a></li>
+            <li class="nav-item"><a href="contato.html">Contato</a></li>
+            <li class="nav-item"><a href="https://wa.me/5555992053993" target="_blank" class="btn-nav-wa">Falar no WhatsApp</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-container">
+        
+        <div class="page-title">
+            <h1>Segurança e Medicina do Trabalho</h1>
+            <p>Garantindo a saúde dos seus colaboradores e a conformidade legal da sua empresa.</p>
+        </div>
+
+        <section class="section-category">
+            <h2><i class="fa-solid fa-briefcase-medical"></i> Nossos Serviços Corporativos</h2>
+            
+            <div class="services-grid">
+                
+                <!-- 1. PCMSO -->
+                <div class="service-card">
+                    <div class="service-icon-area">
+                        <i class="fa-solid fa-file-medical"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">PCMSO</h3>
+                        <p class="service-description">Elaboração e coordenação do Programa de Controle Médico de Saúde Ocupacional (NR-7), prevenindo e mapeando precocemente possíveis danos à saúde do trabalhador.</p>
+                    </div>
+                </div>
+
+                <!-- 2. PGR -->
+                <div class="service-card">
+                    <div class="service-icon-area">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">PGR</h3>
+                        <p class="service-description">Programa de Gerenciamento de Riscos (NR-1). Identificação, avaliação e controle de riscos ocupacionais físicos, químicos, biológicos e de acidentes no ambiente corporativo.</p>
+                    </div>
+                </div>
+
+                <!-- 3. EXAMES OCUPACIONAIS -->
+                <div class="service-card">
+                    <div class="service-icon-area">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Exames Ocupacionais (ASO)</h3>
+                        <p class="service-description">Realização de exames Admissionais, Periódicos, de Retorno ao Trabalho, Mudança de Função e Demissionais, com emissão imediata do Atestado de Saúde Ocupacional.</p>
+                    </div>
+                </div>
+
+                <!-- 4. LAUDOS TÉCNICOS -->
+                <div class="service-card">
+                    <div class="service-icon-area">
+                        <i class="fa-solid fa-paste"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">LTCAT e Laudos Técnicos</h3>
+                        <p class="service-description">Emissão do Laudo Técnico das Condições Ambientais do Trabalho, documento essencial para a comprovação de exposição a agentes nocivos e fins de aposentadoria especial.</p>
+                    </div>
+                </div>
+
+                <!-- 5. EVENTOS DO E-SOCIAL -->
+                <div class="service-card">
+                    <div class="service-icon-area">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Envio de Eventos para o eSocial</h3>
+                        <p class="service-description">Transmissão segura e pontual das cargas de SST (S-2210, S-2220 e S-2240) diretamente para a plataforma do Governo Federal, evitando multas para sua empresa.</p>
+                    </div>
+                </div>
+
+                <!-- 6. EXAMES COMPLEMENTARES -->
+                <div class="service-card">
+                    <div class="service-icon-area">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Exames Complementares</h3>
+                        <p class="service-description">Estrutura dedicada para a realização de exames exigidos por lei conforme a função, como Audiometria, Acuidade Visual, Espirometria, ECG, EEG e exames laboratoriais.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CAIXA DE CHAMADA PARA CONTRATAÇÃO -->
+        <div class="cta-box">
+            <div class="cta-text">
+                <h3>Precisa regularizar os laudos da sua empresa?</h3>
+                <p>Nossa equipe técnica atende desde microempreendedores até grandes indústrias em São Gabriel.</p>
+            </div>
+            <a href="https://wa.me/5555992053993" target="_blank" class="btn-cta-services">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+            </a>
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p><strong>Previtta Assistencial & Medicina do Trabalho</strong></p>
+        <p> Contato: (55) 3237-1369  |  Whatsapp: (55) 99205-3993  |  E-mail: medicinadotrabalho@previtta.com.br</p>
+        <p>Rua General Mallet, 100 - Centro, São Gabriel/RS</p>
+        <p style="margin-top: 10px; color: #64748b;">&copy; 2026 Previtta. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidades | Previtta Assistencial</title>
+    <!-- Google Fonts e FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+   <style>
+        :root {
+            --primary: #1793a6;
+            --primary-hover: #137a8a;
+            --dark: #0f172a;
+            --light-bg: #f4f7f8;
+            --text-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* 1. BARRA DE NAVEGAÇÃO SUPERIOR */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+        }
+
+        .btn-nav-wa {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border-bottom: none !important;
+            font-weight: 600 !important;
+        }
+
+        /* 2. CONTEÚDO PRINCIPAL (PORTFÓLIO) */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .page-title p {
+            color: #64748b;
+            font-size: 1.05rem;
+        }
+
+        .section-category h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+
+        .section-category h2 i {
+            color: var(--primary);
+        }
+
+        /* AJUSTE NA GRADE: Força todas as linhas a terem a mesma altura dinamicamente */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            grid-auto-rows: 1fr; 
+        }
+
+        /* AJUSTE NO CARD: Removida a altura mínima exagerada */
+        /* Alinha todos os elementos do card ao centro */
+        .provider-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 25px 20px;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza horizontalmente */
+            text-align: center;  /* Centraliza os textos */
+            justify-content: space-between; 
+            border: 1px solid #e5e7eb;
+        }
+
+        .avatar-area {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #f0fdfa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto; /* Centraliza o círculo no topo */
+            border: 1px solid #cbd5e1;
+            overflow: hidden; /* Garante que a imagem do logo fique redonda */
+        }
+
+        .avatar-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ajusta a imagem sem distorcer */
+            padding: 4px; /* Pequeno espaçamento interno para os logos */
+        }
+
+        .provider-phone {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza os ícones com os números */
+            gap: 6px;
+        }
+
+        .specialty-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .provider-detail {
+            margin-bottom: 15px;
+        }
+
+        .provider-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .provider-phone {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-contact {
+            background-color: var(--primary);
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: auto; /* Mantém o botão na base do card de forma elegante */
+            transition: background 0.2s;
+            border: none;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* 3. RODAPÉ */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 30px 5%;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 3px solid var(--primary);
+            margin-top: 60px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+            <img src="https://i.imgur.com/YSohsWZ.jpeg" alt="Previtta Assistencial">
+            </a>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="servicos.html">Serviços</a></li>
+            <li class="nav-item"><a href="especialidades.html" class="active">Especialidades</a></li>
+            <li class="nav-item"><a href="plano.html">Plano</a></li>
+            <li class="nav-item"><a href="contato.html">Contato</a></li>
+            <li class="nav-item"><a href="https://wa.me/5555992053993" target="_blank" class="btn-nav-wa">Falar no WhatsApp</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <!-- CONTEÚDO REORGANIZADO EM ORDEM ALFABÉTICA -->
+    <!-- CONTEÚDO REORGANIZADO, CENTRALIZADO E COM LOGOS EXCLUSIVOS -->
+    <main class="main-container">
+        
+        <div class="page-title">
+            <h1>Especialidades e Profissionais</h1>
+            <p>Confira os parceiros com atendimento centralizado em nossa sede.</p>
+        </div>
+
+        <section class="section-category">
+            <h2><i class="fa-solid fa-house-medical"></i> Atendimento em nossa Sede (Rua General Mallet, 100)</h2>
+            
+            <div class="portfolio-grid">
+                
+                <!-- 1. CLÍNICA GERAL -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-user-doctor" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Clínica Geral</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Igor Augusto B. Medeiros</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 99205-3993</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555992053993" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 2. ENDOCRINOLOGIA -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-stethoscope" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Endocrinologia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Giancarlo Alves Bina</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 99954-1627</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555999541627" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 3. ESTÉTICA E MASSOTERAPIA (CASSERINE) -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-spa" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Estética e Massoterapia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Casserine Ferreira</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 99661-4755</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555996614755" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 4. ESTÉTICA E MASSOTERAPIA (MÁRCIA) -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-spa" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Estética e Massoterapia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Márcia Vijagran</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 99229-1861</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555992291861" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 5. FISIOTERAPIA (JAIME) - COM O LOGO DA ESQUERDA DA IMAGEM -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area">
+                            <img src="https://i.imgur.com/VEtbhjz.png" alt="Logo Fisioterapia Jaime">
+                        </div>
+                        <h3 class="specialty-title">Fisioterapia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Jaime Simon</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 98405-8841</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555984058841" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 6. FISIOTERAPIA E PILATES (AMANDA) - COM O LOGO DA DIREITA DA IMAGEM -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area">
+                            <img src="https://i.imgur.com/WraKSmq.png" alt="Logo Pilates Amanda">
+                        </div>
+                        <h3 class="specialty-title">Fisioterapia e Pilates</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Amanda Olmes Biscaglia</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 99674-8268</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555996748268" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 7. GINECOLOGIA -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-baby-carriage" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Ginecologia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Paula Salatino</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 3232-5345</p>
+                        </div>
+                    </div>
+                    <a href="tel:+555532325345" class="btn-contact">Ligar para Consultório</a>
+                </div>
+
+                <!-- 8. ODONTOLOGIA -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-tooth" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Odontologia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Alessandro Salatino</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 3232-5345</p>
+                        </div>
+                    </div>
+                    <a href="tel:+555532325345" class="btn-contact">Ligar para Consultório</a>
+                </div>
+
+                <!-- 9. PSICOLOGIA -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-brain" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Psychologia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Mirlene Schineider</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 99106-4892</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555991064892" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 10. TRAUMATOLOGIA -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-bone" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Traumatologia</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Luiz Cláudio Acosta</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 3232-3438</p>
+                            <p class="provider-phone"><i class="fa-solid fa-mobile-screen-button"></i> (55) 99612-6056</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555996126056" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+                <!-- 11. TRAUMATOLOGIA (RAIO X) -->
+                <div class="provider-card">
+                    <div>
+                        <div class="avatar-area"><i class="fa-solid fa-x-ray" style="font-size: 28px; color: var(--primary);"></i></div>
+                        <h3 class="specialty-title">Traumatologia (Raio X)</h3>
+                        <div class="provider-detail">
+                            <p class="provider-name">Raio X Traumoclínica</p>
+                            <p class="provider-phone"><i class="fa-solid fa-phone"></i> (55) 3232-3438</p>
+                            <p class="provider-phone"><i class="fa-solid fa-mobile-screen-button"></i> (55) 99672-3117</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5555996723117" target="_blank" class="btn-contact">Entre em contato</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p><strong>Previtta Assistencial & Medicina do Trabalho</strong></p>
+        <p> Contato: (55) 3237-1369  |  Whatsapp: (55) 99205-3993  |  E-mail: medicinadotrabalho@previtta.com.br</p>
+        <p>Rua General Mallet, 100 - Centro, São Gabriel/RS</p>
+        <p style="margin-top: 10px; color: #64748b;">&copy; 2026 Previtta. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

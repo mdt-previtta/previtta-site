@@ -1,647 +1,500 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Previtta Assistencial | Medicina do Trabalho</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previtta Assistencial | Medicina do Trabalho</title>
+    <!-- Google Fonts e FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #009fb7;
+            --primary-hover: #008194;
+            --dark: #0f172a;
+            --light-bg: #f4f7f8;
+            --text-color: #1f2937;
+            --border-card: #e5e7eb;
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
 
-    body{
-      font-family:'Poppins', sans-serif;
-      background:#f4f7f8;
-      color:#1f2937;
-      line-height:1.6;
-    }
 
-    :root{
-      --primary:#009fb7;
-      --dark:#0f172a;
-      --light:#ffffff;
-      --gray:#e5e7eb;
-    }
+        .provider-phone {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centraliza os ícones com os números */
+            gap: 6px;
+        }
 
-    header{
-      background:
-      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-      url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1600&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:40px;
-      color:white;
-    }
+        /* -----------------------------------------
+           1. BARRA DE NAVEGAÇÃO SUPERIOR (NAVBAR)
+        -------------------------------------------- */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    .hero{
-      max-width:900px;
-    }
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
 
-    .hero h1{
-      font-size:4rem;
-      line-height:1.1;
-      margin-bottom:20px;
-      font-weight:700;
-    }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+        }
 
-    .hero p{
-      font-size:1.2rem;
-      margin-bottom:35px;
-      color:#f1f5f9;
-    }
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-    .buttons{
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+        }
 
-    .btn{
-      padding:15px 30px;
-      border-radius:50px;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-    }
+        .btn-nav-wa {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border-bottom: none !important;
+            font-weight: 600 !important;
+        }
 
-    .btn-primary{
-      background:var(--primary);
-      color:white;
-    }
+        .btn-nav-wa:hover {
+            background-color: var(--primary-hover);
+        }
 
-    .btn-primary:hover{
-      background:#02879b;
-      transform:translateY(-2px);
-    }
+        /* -----------------------------------------
+           2. BANNER PRINCIPAL (HERO SECTION)
+        -------------------------------------------- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: #ffffff;
+        }
 
-    .btn-outline{
-      border:2px solid white;
-      color:white;
-    }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    .btn-outline:hover{
-      background:white;
-      color:var(--dark);
-    }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
 
-    section{
-      padding:80px 10%;
-    }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
-    }
+        .btn-hero {
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
 
-    .section-title h2{
-      font-size:2.5rem;
-      color:var(--dark);
-      margin-bottom:10px;
-    }
+        .btn-hero-solid {
+            background-color: var(--primary);
+            color: white;
+        }
 
-    .section-title p{
-      color:#64748b;
-    }
+        .btn-hero-solid:hover {
+            background-color: var(--primary-hover);
+        }
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
+        .btn-hero-outline {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
 
-    .card{
-      background:white;
-      padding:30px;
-      border-radius:20px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
+        .btn-hero-outline:hover {
+            background-color: #ffffff;
+            color: var(--dark);
+        }
 
-    .card:hover{
-      transform:translateY(-5px);
-    }
+        /* -----------------------------------------
+           3. CONTAINER DOS 4 BLOCOS EM COLUNAS
+        -------------------------------------------- */
+        .main-content {
+            padding: 50px 4%;
+        }
 
-    .card h3{
-      margin-bottom:15px;
-      color:var(--primary);
-    }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
 
-    .plan-section{
-      background:#0f172a;
-      color:white;
-      border-radius:30px;
-    }
+        /* Estilo Base dos Cards */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 25px 20px;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    .plan-content{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      align-items:center;
-    }
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 15px;
+        }
 
-    .plan-content img{
-  width:100%;
-  border-radius:25px;
-  display:block;
-  margin:20px;
-  max-width:calc(100% - 40px);
-   }
+        /* Bloco 1: Medicina do Trabalho */
+        .services-list {
+            list-style: none;
+        }
 
-    .price-box{
-      background:rgba(255,255,255,0.08);
-      padding:25px;
-      border-radius:20px;
-      margin-top:20px;
-    }
+        .services-list li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
 
-    .map-section{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
-    }
+        .services-list li i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
 
-    iframe{
-      width:100%;
-      height:350px;
-      border:none;
-      border-radius:20px;
-    }
+        /* Bloco 2: Plano Assistencial */
+        .plan-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
 
-    footer{
-      background:#020617;
-      color:white;
-      padding:40px 10%;
-      text-align:center;
-    }
+        .plan-sub-box {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
 
-    .whatsapp-float{
-      position:fixed;
-      width:65px;
-      height:65px;
-      bottom:25px;
-      right:25px;
-      background:#25d366;
-      color:white;
-      border-radius:50%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-decoration:none;
-      font-size:30px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.3);
-      z-index:999;
-    }
+        .plan-sub-box-active {
+            border: 1px solid var(--primary);
+            background-color: #f0fdfa;
+        }
 
-    @media(max-width:900px){
+        .plan-sub-box h5 {
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
 
-      .hero h1{
-        font-size:2.5rem;
-      }
+        .plan-sub-box .price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #000;
+            margin: 2px 0;
+        }
 
-      .plan-content,
-      .map-section{
-        grid-template-columns:1fr;
-      }
+        .plan-sub-box small {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
 
-    }
-  </style>
+        .btn-card-outline {
+            border: 1.5px solid #000000;
+            color: #000000;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: auto;
+            transition: 0.2s;
+        }
+
+        .btn-card-outline:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Bloco 3: Solicitar Rota (Customizado em Teal/Azul) */
+        .card-teal {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .card-teal .card-title {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .btn-card-white {
+            border: 1.5px solid #ffffff;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: auto;
+            transition: 0.2s;
+        }
+
+        .btn-card-white:hover {
+            background-color: #ffffff;
+            color: var(--primary);
+        }
+
+        /* Bloco 4: Facebook Card */
+        .card-facebook {
+            padding: 15px 10px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .fb-widget-wrapper {
+            width: 100%;
+            height: 420px;
+            overflow-y: auto;
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+        }
+
+        /* -----------------------------------------
+           4. RODAPÉ (FOOTER)
+        -------------------------------------------- */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 30px 5%;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 3px solid var(--primary);
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+
+        /* -----------------------------------------
+           5. RESPONSIVIDADE (MOBILE & TABLET)
+        -------------------------------------------- */
+        @media (max-width: 1100px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                min-height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="hero">
-    <h1>Previtta Assistencial</h1>
-    <p>
-      Medicina do Trabalho, Saúde Ocupacional e Plano Assistencial
-      com atendimento humanizado em São Gabriel/RS.
-    </p>
-
-    <div class="buttons">
-      <a class="btn btn-primary"
-         href="https://wa.me/5555992053993"
-         target="_blank">
-         Falar no WhatsApp
-      </a>
-
-      <a class="btn btn-outline" href="#planos">
-         Conhecer o Plano
-      </a>
-    </div>
-    
-    <div style="margin-top:25px;">
-  <p style="
-    font-size:1.1rem;
-    color:#ffffff;
-    font-weight:500;
-    letter-spacing:0.5px;
-  ">
-    ☎ (55) 3237-1369
-  </p>
-</div>
-  </div>
-</header>
-
-<section>
-
-  <div class="section-title">
-    <h2>Serviços de Medicina do Trabalho</h2>
-    <p>
-      Soluções completas em saúde ocupacional e segurança do trabalho.
-    </p>
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>Exames Ocupacionais</h3>
-      <p>
-        Admissional, demissional, periódico, retorno ao trabalho e mudança de função.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>PCMSO</h3>
-      <p>
-        Programa completo de controle médico de saúde ocupacional.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>PGR</h3>
-      <p>
-        Gestão de riscos ocupacionais conforme legislação vigente.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>LTCAT</h3>
-      <p>
-        Laudo técnico das condições ambientais do trabalho.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>eSocial SST</h3>
-      <p>
-        Envio e gerenciamento das informações SST via plataforma SGG.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Gestão SST</h3>
-      <p>
-        Gestão completa de saúde e segurança ocupacional para empresas.
-      </p>
-    </div>
-      
-    <div class="card">
-      <h3>NR-01</h3>
-      <p>
-        Implementação e gestão dos requisitos da NR-01, incluindo avaliação de
-        riscos psicossociais, suporte documental, orientações técnicas e
-        adequação ao eSocial SST.
-      </p>
-    </div>
-
- </div>
-    
- </section>
-
-<section id="planos">
-
-  <div class="plan-section">
-    <div class="plan-content">
-
-      <div class="plan-text">
-
-        <h2>Plano Assistencial Previtta</h2>
-
-        <p class="plan-description">
-          Descontos de 30% a 60% em consultas, exames e especialidades
-          médicas em São Gabriel, Rosário do Sul e Santa Maria.
-        </p>
-
-        <div class="price-box">
-          <h3>Plano Familiar</h3>
-          <p>R$ 30,00/mês</p>
-          <small>Até 3 pessoas inclusas</small>
+    <!-- 1. BARRA DE NAVEGAÇÃO -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+            <img src="https://i.imgur.com/YSohsWZ.jpeg" alt="Previtta Assistencial">
+            </a>
         </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="active">Home</a></li>
+	        <li class="nav-item"><a href="servicos.html">Serviços</a></li>
+            <li class="nav-item"><a href="especialidades.html">Especialidades</a></li>
+            <li class="nav-item"><a href="plano.html">Plano</a></li>
+            <li class="nav-item"><a href="contato.html">Contato</a></li>
+            <li class="nav-item"><a href="https://wa.me/5555992053993" target="_blank" class="btn-nav-wa">Falar no WhatsApp</a></li>
+        </ul>
+    </nav>
 
-        <div class="price-box">
-          <h3>Plano Individual</h3>
-          <p>R$ 20,00/mês</p>
+    <!-- 2. BANNER PRINCIPAL (HERO) -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Previtta: Segurança e Medicina do Trabalho<br>e Plano Assistencial em São Gabriel/RS.</h1>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5555992053993" target="_blank" class="btn-hero btn-hero-solid">Falar no WhatsApp</a>
+                <a href="#" class="btn-hero btn-hero-outline">Conhecer o Plano</a>
+            </div>
         </div>
+    </header>
 
-        <div class="plan-button">
-          <a class="btn btn-primary"
-             href="https://wa.me/5555992053993"
-             target="_blank">
-             Solicitar Cadastro
-          </a>
+    <!-- 3. GRADE COM OS 4 BLOCOS LADO A LADO -->
+    <main class="main-content">
+        <div class="grid-container">
+            
+            <!-- BLOCO 1: MEDICINA DO TRABALHO -->
+            <div class="card">
+                <div>
+                    <h3 class="card-title">Medicina do Trabalho</h3>
+                    <ul class="services-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Exames Ocupacionais</li>
+                        <li><i class="fa-solid fa-circle-check"></i> PCMSO</li>
+                        <li><i class="fa-solid fa-circle-check"></i> PGR</li>
+                        <li><i class="fa-solid fa-circle-check"></i> LTCAT</li>
+                        <li><i class="fa-solid fa-circle-check"></i> e-Social para o SST</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Gestão SST</li>
+                        <li><i class="fa-solid fa-circle-check"></i> NR 01</li>
+                    </ul>
+                </div>
+		<!-- BOTÃO REFORMULADO COM A COR DO SEU LOGO -->
+                <a href="https://wa.me/5555992053993?text=Olá!%20Gostaria%20de%20atendimento%20para%20Medicina%20do%20Trabalho." 
+                   target="_blank" 
+                   class="btn-card-outline" 
+                   style="margin-top: 20px; background-color: #1793a6; color: #ffffff; border: none; text-align: center;">
+                    Entre em contato
+                </a>
+            </div>
+
+            <!-- BLOCO 2: PLANO ASSISTENCIAL -->
+            <div class="card">
+                <div>
+                    <h3 class="card-title">Plano Assistencial</h3>
+                    <p class="plan-subtitle">Valores para o plano Standard:</p>
+                    
+                    <div class="plan-sub-box plan-sub-box-active">
+                        <h5>Familiar</h5>
+                        <p class="price">R$ 30,00</p>
+                        <small>per monto</small>
+                    </div>
+                    
+                    <div class="plan-sub-box">
+                        <h5>Individual</h5>
+                        <p class="price">R$ 20,00</p>
+                        <small>per monto</small>
+                    </div>
+                </div>
+                <a href="plano.html" class="btn-card-outline">Mais informações</a>
+            </div>
+
+            <!-- BLOCO 3: SOLICITAR ROTA (COR TEAL/AZUL) -->
+            <div class="card card-teal">
+                <div>
+                    <h3 class="card-title">Solicitar Rota</h3>
+                    <div class="map-container">
+                        <!-- Mapa focado na Rua General Mallet, 100 -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3439.467885973418!2d-54.3216834!3d-30.3377755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9506639c636f88cb%3A0x8e833f4a3bf18fb!2sR.%20Gen.%20Mallet%2C%20100%20-%20Centro%2C%20S%C3%A3o%20Gabriel%20-%20RS!5e0!3m2!1spt-BR!2sbr!4v1700000000000"></iframe>
+                    </div>
+                </div>
+                <a href="https://maps.google.com/?q=Rua+General+Mallet+100+Sao+Gabriel+RS" target="_blank" class="btn-card-white">Gerar Rota</a>
+            </div>
+
+            <!-- BLOCO 4: WIDGET DO FACEBOOK -->
+            <div class="card card-facebook">
+                <div class="fb-widget-wrapper">
+                    <!-- Lembre-se de trocar os links abaixo para o link da sua página oficial do facebook -->
+                    <div class="fb-page" 
+                        data-href="https://www.facebook.com/clinicaprevitta" 
+                        data-tabs="timeline" 
+                        data-width="340" 
+                        data-height="410" 
+                        data-small-header="true" 
+                        data-adapt-container-width="true" 
+                        data-hide-cover="false" 
+                        data-show-facepile="false">
+                        <blockquote cite="https://www.facebook.com/clinicaprevitta" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/clinicaprevitta">Previtta no Facebook</a>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-      </div>
-
-      <div>
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop">
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-<style>
-
-.plan-text{
-  padding:20px 10px 20px 35px;
-}
-
-.plan-text h2{
-  margin-bottom:20px;
-  line-height:1.2;
-}
-
-.plan-description{
-  margin-bottom:25px;
-  max-width:500px;
-}
-
-.price-box{
-  background:rgba(255,255,255,0.08);
-  padding:25px;
-  border-radius:20px;
-  margin-top:20px;
-  max-width:500px;
-}
-
-.plan-button{
-  margin-top:35px;
-  margin-bottom:25px;
-}
-
-@media(max-width:900px){
-
-  .plan-text{
-    padding:10px;
-  }
-
-  .price-box{
-    max-width:100%;
-  }
-
-}
-
-</style>
-
-<section>
-
-  <div class="section-title">
-    <h2>Especialidades em nossa Sede</h2>
-    <p>
-      Conheça os profissionais parceiros da Previtta.
-    </p>
-  </div>
-
-  <div class="cards">
-    
-     <!-- Clínica Geral -->
-    <div class="card specialty-card">
-      <h3>Clínica Geral</h3>
-
-      <div class="specialty-info">
-        <p><strong>Igor Augusto B. Medeiros</strong></p>
-        <p>📞 (55) 99205-3993</p>
-      </div>
-    </div>
-    
-     <!-- Endocrinologia -->
-    <div class="card specialty-card">
-      <h3>Endocrinologia</h3>
-
-      <div class="specialty-info">
-        <p><strong>Giancarlo Alves Bina</strong></p>
-        <p>📞 (55) 99954-1627</p>
-      </div>
-    </div>
-
-    <!-- Psicologia -->
-    <div class="card specialty-card">
-      <h3>Psicologia</h3>
-
-      <div class="specialty-info">
-        <p><strong>Mirlene Schineider</strong></p>
-        <p>📞 (55) 99106-4892</p>
-      </div>
-    </div>
-
-    <!-- Fisioterapia -->
-    <div class="card specialty-card">
-      <h3>Fisioterapia</h3>
-
-      <div class="specialty-info">
-        <p><strong>Amanda Biscaglia</strong></p>
-        <p>📞 (55) 99674-8268</p>
-
-        <br>
-
-        <p><strong>Jaime Simon</strong></p>
-        <p>📞 (55) 98405-8841</p>
-      </div>
-    </div>
-
-    <!-- Odontologia -->
-    <div class="card specialty-card">
-      <h3>Odontologia</h3>
-
-      <div class="specialty-info">
-        <p><strong>Alessandro Salatino</strong></p>
-        <p>📞 (55) 3232-5345</p>
-      </div>
-    </div>
-
-    <!-- Ginecologia -->
-    <div class="card specialty-card">
-      <h3>Ginecologia</h3>
-
-      <div class="specialty-info">
-        <p><strong>Paula Salatino</strong></p>
-        <p>📞 (55) 3232-5345</p>
-      </div>
-    </div>
-
-    <!-- Traumatologia -->
-    <div class="card specialty-card">
-      <h3>Traumatologia</h3>
-
-      <div class="specialty-info">
-
-        <p><strong>Luiz Cláudio Acosta</strong></p>
-        <p>📞 (55) 3232-3438</p>
-        <p>📱 (55) 99612-6056</p>
-
-        <br>
-
-        <p><strong>Raio X Traumoclínica</strong></p>
-        <p>📞 (55) 3232-3438</p>
-        <p>📱 (55) 99672-3117</p>
-
-      </div>
-    </div>
-
-    <!-- Pilates -->
-    <div class="card specialty-card">
-      <h3>Pilates</h3>
-
-      <div class="specialty-info">
-        <p><strong>Amanda Biscaglia</strong></p>
-        <p>📞 (55) 99674-8268</p>
-      </div>
-    </div>
-
-    <!-- Estética e Massoterapia -->
-    <div class="card specialty-card">
-      <h3>Estética e Massoterapia</h3>
-
-      <div class="specialty-info">
-        <p><strong>Casserine Ferreira</strong></p>
-        <p>📞 (55) 99661-4755</p>
-
-         <br>
-
-        <p><strong>Márcia Vijagran</strong></p>
-        <p>📞 (55) 99229-91861</p>
-        
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<style>
-
-.specialty-card{
-  position:relative;
-  overflow:hidden;
-  min-height:120px;
-  transition:0.3s;
-}
-
-.specialty-card h3{
-  transition:0.3s;
-}
-
-.specialty-info{
-  margin-top:20px;
-  opacity:0;
-  max-height:0;
-  overflow:hidden;
-  transition:all 0.4s ease;
-  color:#334155;
-  font-size:0.95rem;
-  font-family:'Poppins', sans-serif;
-  font-weight:400;
-  line-height:1.6;
-}
-
-.specialty-card:hover .specialty-info{
-  opacity:1;
-  max-height:500px;
-}
-
-.specialty-card:hover{
-  transform:translateY(-6px);
-}
-
-.specialty-info p{
-  margin-bottom:8px;
-  color:#475569;
-}
-
-@media(max-width:768px){
-
-  .specialty-info{
-    opacity:1;
-    max-height:500px;
-    margin-top:15px;
-  }
-
-}
-
-</style>
-<section>
-
-  <div class="map-section">
-
-    <div>
-      <h2>Como Chegar</h2>
-
-      <p style="margin-top:20px;">
-        Rua General Mallet, 100<br>
-        Centro — São Gabriel/RS
-      </p>
-
-      <div style="margin-top:30px;">
-        <a class="btn btn-primary"
-           target="_blank"
-           href="https://www.google.com/maps/dir/?api=1&destination=Rua+General+Mallet+100+Sao+Gabriel+RS">
-           Gerar Rota
-        </a>
-      </div>
-
-    </div>
-
-    <div>
-
-      <iframe
-        src="https://www.google.com/maps?q=Rua+General+Mallet+100+São+Gabriel+RS&output=embed">
-      </iframe>
-
-    </div>
-
-  </div>
-
-</section>
-
-<footer>
-
-  <h3>Previtta Assistencial</h3>
-
-  <p style="margin-top:15px;">
-    Segurança e Medicina do Trabalho
-  </p>
-
-<p style="margin-top:15px;">
-  WhatsApp: (55) 99205-3993 &nbsp;&nbsp; | &nbsp;&nbsp;
-  ☎ (55) 3237-1369
-</p>
-
-  <p>
-    E-mail: medicinadotrabalho@previtta.com.br &nbsp;&nbsp; | &nbsp;&nbsp;
-    São Gabriel - RS
-  </p>
-
-</footer>
-
-<a class="whatsapp-float"
-   href="https://wa.me/5555992053993"
-   target="_blank">
-   ✆
-</a>
+    </main>
+
+    <!-- 4. RODAPÉ -->
+    <footer>
+        <p><strong>Previtta Assistencial & Medicina do Trabalho</strong></p>
+        <p> Contato: (55) 3237-1369  |  Whatsapp: (55) 99205-3993  |  E-mail: medicinadotrabalho@previtta.com.br</p>
+        <p>Rua General Mallet, 100 - Centro, São Gabriel/RS</p>
+        <p style="margin-top: 10px; color: #64748b;">&copy; 2026 Previtta. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SDK do Facebook integrado para rodar o feed -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0"></script>
 
 </body>
 </html>

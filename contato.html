@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Previtta Assistencial</title>
+    <!-- Google Fonts e FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1793a6;
+            --primary-hover: #137a8a;
+            --dark: #0f172a;
+            --light-bg: #f4f7f8;
+            --text-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* 1. BARRA DE NAVEGAÇÃO SUPERIOR */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+        }
+
+        .btn-nav-wa {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border-bottom: none !important;
+            font-weight: 600 !important;
+        }
+
+        /* 2. CONTEÚDO PRINCIPAL (CONTATO) */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .page-title p {
+            color: #64748b;
+            font-size: 1.05rem;
+        }
+
+        /* LAYOUT EM DUAS COLUNAS */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* COLUNA DA ESQUERDA - MEIOS DE CONTATO */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .method-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .method-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border-color: var(--primary);
+        }
+
+        .method-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Cores específicas para cada tipo de contato */
+        .icon-phone { background-color: #eff6ff; color: #3b82f6; }
+        .icon-wa { background-color: #f0fdf4; color: #22c55e; }
+        .icon-mail { background-color: #fdf2f8; color: #ec4899; }
+
+        .method-info h3 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .method-info p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .method-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* COLUNA DA DIREITA - MAPA E ENDEREÇO */
+        .map-section {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .address-box {
+            margin-bottom: 25px;
+        }
+
+        .address-box h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .address-box h3 i {
+            color: var(--primary);
+        }
+
+        .address-box p {
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* Contêiner responsivo para o Mapa */
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 3. RODAPÉ */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 30px 5%;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 3px solid var(--primary);
+            margin-top: 60px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+            <img src="https://i.imgur.com/YSohsWZ.jpeg" alt="Previtta Assistencial">
+            </a>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="servicos.html">Serviços</a></li>
+            <li class="nav-item"><a href="especialidades.html">Especialidades</a></li>
+            <li class="nav-item"><a href="plano.html">Plano</a></li>
+            <li class="nav-item"><a href="contato.html" class="active">Contato</a></li>
+            <li class="nav-item"><a href="https://wa.me/5555992053993" target="_blank" class="btn-nav-wa">Falar no WhatsApp</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-container">
+        
+        <div class="page-title">
+            <h1>Fale Conosco</h1>
+            <p>Escolha o canal de sua preferência ou faça-nos uma visita.</p>
+        </div>
+
+        <div class="contact-grid">
+            
+            <!-- COLUNA ESQUERDA: LINKS DIRETOS -->
+            <section class="contact-methods">
+                
+                <!-- WHATSAPP -->
+                <a href="https://wa.me/5555992053993" target="_blank" class="method-card">
+                    <div class="method-icon icon-wa">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="method-info">
+                        <h3>WhatsApp</h3>
+                        <p>Agendamentos, carteirinhas e suporte geral rápido.</p>
+                        <span class="method-link">(55) 99205-3993 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </a>
+
+                <!-- TELEFONE FIXO -->
+                <a href="tel:+555532371369" class="method-card">
+                    <div class="method-icon icon-phone">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="method-info">
+                        <h3>Telefone Fixo</h3>
+                        <p>Fale diretamente com a nossa recepção central.</p>
+                        <span class="method-link">(55) 3237-1369 <i class="fa-solid fa-phone-flip"></i></span>
+                    </div>
+                </a>
+
+                <!-- E-MAIL -->
+                <a href="mailto:medicinadotrabalho@previtta.com.br" class="method-card">
+                    <div class="method-icon icon-mail">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="method-info">
+                        <h3>E-mail</h3>
+                        <p>Para envio de documentação corporativa e orçamentos.</p>
+                        <span class="method-link">medicinadotrabalho@previtta.com.br <i class="fa-regular fa-envelope"></i></span>
+                    </div>
+                </a>
+
+            </section>
+
+            <!-- COLUNA DIREITA: ENDEREÇO E MAPA AMPLIADO -->
+            <section class="map-section">
+                <div class="address-box">
+                    <h3><i class="fa-solid fa-location-dot"></i> Nossa Estrutura</h3>
+                    <p>
+                        <strong>Endereço:</strong> Rua General Mallet, 100 - Centro<br>
+                        <strong>Cidade:</strong> São Gabriel / RS<br>
+                        <strong>CEP:</strong> 97300-430
+                    </p>
+                </div>
+
+                <!-- Google Maps Incorporado focado na Rua General Mallet, 100 -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3437.9540306443834!2d-54.3213076!3d-30.3380489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95aa07c0e86b4f77%3A0x6b447668612f00a!2sR.%20Gen.%20Mallet%2C%20100%20-%20Centro%2C%20S%C3%A3o%20Gabriel%20-%20RS%2C%2097300-000!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p><strong>Previtta Assistencial & Medicina do Trabalho</strong></p>
+        <p> Contato: (55) 3237-1369  |  Whatsapp: (55) 99205-3993  |  E-mail: medicinadotrabalho@previtta.com.br</p>
+        <p>Rua General Mallet, 100 - Centro, São Gabriel/RS - CEP: 97300-430</p>
+        <p style="margin-top: 10px; color: #64748b;">&copy; 2026 Previtta. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
