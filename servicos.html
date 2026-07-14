@@ -172,6 +172,30 @@
             margin-bottom: 8px;
         }
 
+                /* Estilos para o Card em Destaque nos Serviços */
+        .service-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(23, 147, 166, 0.1);
+            position: relative; /* Necessário para posicionar a etiqueta perfeitamente */
+        }
+        
+        /* Etiqueta de Destaque */
+        .service-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 3px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
         .service-description {
             font-size: 0.95rem;
             color: #475569;
@@ -352,8 +376,9 @@
                         <p class="service-description">Estrutura dedicada para a realização de exames exigidos por lei conforme a função, como Audiometria, Acuidade Visual, Espirometria, ECG, EEG e exames laboratoriais.</p>
                     </div>
                 </div>
-                <!-- NOVO CARD: NR 01 AVALIAÇÃO PSICOSSOCIAL -->
-                <div class="service-card">
+               <!-- CARD DESTAQUE: NR 01 AVALIAÇÃO PSICOSSOCIAL -->
+                <div class="service-card featured">
+                    <div class="service-badge">Destaque</div>
                     <div class="service-icon-area">
                         <i class="fa-solid fa-brain"></i>
                     </div>
