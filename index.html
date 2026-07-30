@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --primary: #009fb7;
             --primary-hover: #008194;
@@ -32,14 +36,13 @@
             line-height: 1.5;
         }
 
-
         .provider-phone {
             font-size: 0.9rem;
             color: #475569;
             margin-top: 2px;
             display: flex;
             align-items: center;
-            justify-content: center; /* Centraliza os ícones com os números */
+            justify-content: center;
             gap: 6px;
         }
 
@@ -101,128 +104,101 @@
         /* -----------------------------------------
            2. BANNER PRINCIPAL (HERO SECTION)
         -------------------------------------------- */
-        /* ================= HERO BANNER ================= */
-/* ================= HERO BANNER ================= */
-.hero {
-    position: relative;
-    /* Degradê que protege a leitura na esquerda e deixa as pessoas visíveis na direita */
-    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0.05) 100%), 
-                      url('previtta-field.png');
-    background-size: cover;
-    background-position: 70% center; /* Empurra as pessoas para a direita */
-    background-repeat: no-repeat;
-    
-    color: #ffffff;
-    padding: 80px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 480px; 
-}
+        .hero {
+            position: relative;
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0.05) 100%), 
+                              url('previtta-field.png');
+            background-size: cover;
+            background-position: 70% center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 480px; 
+        }
 
-.hero-content {
-    max-width: 550px; /* Garante que o texto fique bem na esquerda */
-    margin-left: 5%;
-    text-align: left;
-}
+        .hero-content {
+            max-width: 550px;
+            margin-left: 5%;
+            text-align: left;
+        }
 
-.hero-content h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 15px;
-    color: #ffffff !important;
-    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
-}
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 15px;
+            color: #ffffff !important;
+            text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+        }
 
-.hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    color: #ffffff !important;
-    opacity: 0.95;
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
-}
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #ffffff !important;
+            opacity: 0.95;
+            text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+        }
 
-/* Conteiner dos Botões */
-.hero .hero-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
+        .hero .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-/* Estilização FORÇADA para cobrir todas as variações de classe dos botões */
-.hero .hero-buttons a,
-.hero a.btn-primary, 
-.hero a.btn-secondary,
-.hero a.btn-hero,
-.hero a.btn-hero-solid,
-.hero a.btn-hero-outline {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 26px !important;
-    border-radius: 50px !important;
-    font-weight: 600 !important;
-    font-size: 0.95rem !important;
-    text-decoration: none !important;
-    transition: all 0.25s ease !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-    border: none;
-}
+        .hero .hero-buttons a,
+        .hero a.btn-primary, 
+        .hero a.btn-secondary,
+        .hero a.btn-hero,
+        .hero a.btn-hero-solid,
+        .hero a.btn-hero-outline {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 26px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+            border: none;
+        }
 
-/* 1º BOTÃO (WhatsApp / Principal) - Verde Turquesa */
-.hero .hero-buttons a:first-child,
-.hero a.btn-primary,
-.hero a.btn-hero-solid {
-    background-color: #1793a6 !important;
-    color: #ffffff !important;
-}
+        .hero .hero-buttons a:first-child,
+        .hero a.btn-primary,
+        .hero a.btn-hero-solid {
+            background-color: #1793a6 !important;
+            color: #ffffff !important;
+        }
 
-.hero .hero-buttons a:first-child:hover,
-.hero a.btn-primary:hover,
-.hero a.btn-hero-solid:hover {
-    background-color: #127585 !important;
-    color: #ffffff !important;
-    transform: translateY(-2px);
-}
+        .hero .hero-buttons a:first-child:hover,
+        .hero a.btn-primary:hover,
+        .hero a.btn-hero-solid:hover {
+            background-color: #127585 !important;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+        }
 
-/* 2º BOTÃO (Plano / Secundário) - Branco */
-.hero .hero-buttons a:nth-child(2),
-.hero a.btn-secondary,
-.hero a.btn-hero-outline {
-    background-color: #ffffff !important;
-    color: #151e2e !important;
-}
+        .hero .hero-buttons a:nth-child(2),
+        .hero a.btn-secondary,
+        .hero a.btn-hero-outline {
+            background-color: #ffffff !important;
+            color: #151e2e !important;
+        }
 
-.hero .hero-buttons a:nth-child(2):hover,
-.hero a.btn-secondary:hover,
-.hero a.btn-hero-outline:hover {
-    background-color: #f1f5f9 !important;
-    color: #0f172a !important;
-    transform: translateY(-2px);
-}
-
-/* Responsividade para Celular */
-@media (max-width: 768px) {
-    .hero {
-        background-position: center center;
-        padding: 60px 20px;
-        justify-content: center;
-    }
-
-    .hero-content {
-        margin-left: 0;
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .hero .hero-buttons {
-        justify-content: center;
-    }
-}
+        .hero .hero-buttons a:nth-child(2):hover,
+        .hero a.btn-secondary:hover,
+        .hero a.btn-hero-outline:hover {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+            transform: translateY(-2px);
+        }
 
         /* -----------------------------------------
            3. CONTAINER DOS 4 BLOCOS EM COLUNAS
@@ -233,17 +209,16 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            align-items: start;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 15px;
+            align-items: stretch;
         }
 
-        /* Estilo Base dos Cards */
         .card {
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            padding: 25px 20px;
+            padding: 20px 14px;
             min-height: 480px;
             display: flex;
             flex-direction: column;
@@ -311,9 +286,12 @@
             color: #64748b;
         }
 
-        .btn-card-outline {
-            border: 1.5px solid #000000;
-            color: #000000;
+        /* Estilo Padronizado dos Botões dos Cards */
+        .btn-card-outline,
+        .btn-card-white {
+            background-color: #1793a6 !important;
+            color: #ffffff !important;
+            border: none !important;
             text-align: center;
             text-decoration: none;
             padding: 10px;
@@ -325,19 +303,108 @@
             transition: 0.2s;
         }
 
-        .btn-card-outline:hover {
-            background-color: #000000;
-            color: #ffffff;
+        .btn-card-outline:hover,
+        .btn-card-white:hover {
+            background-color: #127585 !important;
+            color: #ffffff !important;
         }
 
-        /* Bloco 3: Solicitar Rota (Customizado em Teal/Azul) */
+        /* Bloco 3: Horários de Atendimento */
+        .card-horarios .card-title {
+            text-align: center;
+            color: #000000 !important;
+        }
+
+        .schedule-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .schedule-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        .schedule-row .day-label {
+            font-weight: 500;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .schedule-row .day-label i {
+            color: #1793a6;
+        }
+
+        .time-badge {
+            font-weight: 600;
+            color: #0f172a;
+            background-color: #ffffff;
+            padding: 3px 6px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            font-size: 0.78rem;
+            white-space: nowrap;
+        }
+
+        .closed-row {
+            background-color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .closed-row .day-label i {
+            color: #94a3b8;
+        }
+
+        .closed-badge {
+            color: #ef4444;
+            background-color: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .schedule-info-box {
+            background-color: #f0fdfa;
+            border-left: 3px solid #1793a6;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #0f766e;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .schedule-info-box i {
+            margin-top: 2px;
+        }
+
+        /* Bloco 4: Solicitar Rota */
         .card-teal {
-            background-color: var(--primary);
-            color: #ffffff;
+            background-color: #ffffff;
+            color: var(--dark, #333333);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .card-teal .card-title {
-            color: #ffffff;
+            color: #000000 !important;
             text-align: center;
         }
 
@@ -347,46 +414,13 @@
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
         }
 
         .map-container iframe {
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        .btn-card-white {
-            border: 1.5px solid #ffffff;
-            color: #ffffff;
-            text-align: center;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: block;
-            margin-top: auto;
-            transition: 0.2s;
-        }
-
-        .btn-card-white:hover {
-            background-color: #ffffff;
-            color: var(--primary);
-        }
-
-        /* Bloco 4: Facebook Card */
-        .card-facebook {
-            padding: 15px 10px;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .fb-widget-wrapper {
-            width: 100%;
-            height: 420px;
-            overflow-y: auto;
-            border: 1px solid var(--border-card);
-            border-radius: 8px;
         }
 
         /* -----------------------------------------
@@ -410,7 +444,8 @@
         -------------------------------------------- */
         @media (max-width: 1100px) {
             .grid-container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
             }
         }
 
@@ -425,14 +460,35 @@
                 justify-content: center;
                 gap: 15px;
             }
+            .hero {
+                background-position: center center;
+                padding: 60px 20px;
+                justify-content: center;
+            }
+
+            .hero-content {
+                margin-left: 0;
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero .hero-buttons {
+                justify-content: center;
+            }
+
             .hero h1 {
                 font-size: 1.8rem;
             }
             .grid-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
             }
             .card {
                 min-height: auto;
+                padding: 25px 20px;
+            }
+            .schedule-row {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -443,14 +499,14 @@
     <nav class="navbar">
         <div class="nav-logo">
             <a href="index.html">
-            <img src="https://i.imgur.com/YSohsWZ.jpeg" alt="Previtta Assistencial">
+                <img src="https://i.imgur.com/YSohsWZ.jpeg" alt="Previtta Assistencial">
             </a>
         </div>
         <ul class="nav-menu">
             <li class="nav-item"><a href="index.html" class="active">Home</a></li>
-	        <li class="nav-item"><a href="servicos.html">Serviços</a></li>
+            <li class="nav-item"><a href="servicos.html">Serviços</a></li>
             <li class="nav-item"><a href="especialidades.html">Especialidades</a></li>
-            <li class="nav-item"><a href="plano.html">Plano</a></li>
+            <li class="nav-item"><a href="#plano">Plano</a></li>
             <li class="nav-item"><a href="contato.html">Contato</a></li>
             <li class="nav-item"><a href="https://wa.me/5555992053993" target="_blank" class="btn-nav-wa">Falar no WhatsApp</a></li>
         </ul>
@@ -458,23 +514,23 @@
 
     <!-- 2. BANNER PRINCIPAL (HERO) -->
     <section class="hero">
-    <div class="hero-content">
-        <h1>Previtta Assistencial e Medicina do Trabalho</h1>
-        <p>Cuidando da sua saúde e da sua empresa em São Gabriel/RS</p>
-        
-        <div class="hero-buttons">
-            <a href="https://wa.me/5555992053993" target="_blank" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
-            <a href="#plano" class="btn-secondary">Conhecer o Plano</a>
+        <div class="hero-content">
+            <h1>Previtta Assistencial e Medicina do Trabalho</h1>
+            <p>Cuidando da sua saúde e da sua empresa em São Gabriel/RS</p>
+            
+            <div class="hero-buttons">
+                <a href="https://wa.me/5555992053993" target="_blank" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
+                <a href="#plano" class="btn-secondary">Conhecer o Plano</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- 3. GRADE COM OS 4 BLOCOS LADO A LADO -->
     <main class="main-content">
         <div class="grid-container">
             
             <!-- BLOCO 1: MEDICINA DO TRABALHO -->
-            <div class="card">
+            <div class="card" id="medicina-trabalho">
                 <div>
                     <h3 class="card-title">Medicina do Trabalho</h3>
                     <ul class="services-list">
@@ -487,17 +543,15 @@
                         <li><i class="fa-solid fa-circle-check"></i> NR 01</li>
                     </ul>
                 </div>
-		<!-- BOTÃO REFORMULADO COM A COR DO SEU LOGO -->
                 <a href="https://wa.me/5555992053993?text=Olá!%20Gostaria%20de%20atendimento%20para%20Medicina%20do%20Trabalho." 
                    target="_blank" 
-                   class="btn-card-outline" 
-                   style="margin-top: 20px; background-color: #1793a6; color: #ffffff; border: none; text-align: center;">
+                   class="btn-card-outline">
                     Entre em contato
                 </a>
             </div>
 
             <!-- BLOCO 2: PLANO ASSISTENCIAL -->
-            <div class="card">
+            <div class="card" id="plano">
                 <div>
                     <h3 class="card-title">Plano Assistencial</h3>
                     <p class="plan-subtitle">Valores para o plano Standard:</p>
@@ -505,48 +559,64 @@
                     <div class="plan-sub-box plan-sub-box-active">
                         <h5>Familiar</h5>
                         <p class="price">R$ 30,00</p>
-                        <small>per monto</small>
+                        <small>por mês</small>
                     </div>
                     
                     <div class="plan-sub-box">
                         <h5>Individual</h5>
                         <p class="price">R$ 20,00</p>
-                        <small>per monto</small>
+                        <small>por mês</small>
                     </div>
                 </div>
                 <a href="plano.html" class="btn-card-outline">Mais informações</a>
             </div>
 
-            <!-- BLOCO 3: SOLICITAR ROTA (COR TEAL/AZUL) -->
-            <div class="card card-teal">
+            <!-- BLOCO 3: HORÁRIOS DE ATENDIMENTO -->
+            <div class="card card-horarios" id="horarios">
+                <div>
+                    <h3 class="card-title">Atendimento</h3>
+                    <p class="schedule-subtitle">Horários de funcionamento:</p>
+                    
+                    <div class="schedule-list">
+                        <div class="schedule-row">
+                            <span class="day-label"><i class="fa-regular fa-clock"></i> Seg a Sex (Manhã)</span>
+                            <span class="time-badge">07:30 - 12:00</span>
+                        </div>
+                        
+                        <div class="schedule-row">
+                            <span class="day-label"><i class="fa-regular fa-clock"></i> Seg a Sex (Tarde)</span>
+                            <span class="time-badge">13:30 - 18:00</span>
+                        </div>
+
+                        <div class="schedule-row closed-row">
+                            <span class="day-label"><i class="fa-regular fa-calendar-xmark"></i> Sábado e Domingo</span>
+                            <span class="time-badge closed-badge">Fechado</span>
+                        </div>
+                    </div>
+
+                    <div class="schedule-info-box">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Atendimento presencial e exames ocupacionais mediante agendamento.</span>
+                    </div>
+                </div>
+
+                <!-- Botão direcionando para o WhatsApp -->
+                <a href="https://wa.me/5555992053993?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20exame%20ocupacional." 
+                   target="_blank" 
+                   class="btn-card-outline">
+                    Agendar Exame
+                </a>
+            </div>
+
+            <!-- BLOCO 4: SOLICITAR ROTA (COMO CHEGAR) -->
+            <div class="card card-teal" id="localizacao">
                 <div>
                     <h3 class="card-title">Solicitar Rota</h3>
                     <div class="map-container">
-                        <!-- Mapa focado na Rua General Mallet, 100 -->
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3439.467885973418!2d-54.3216834!3d-30.3377755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9506639c636f88cb%3A0x8e833f4a3bf18fb!2sR.%20Gen.%20Mallet%2C%20100%20-%20Centro%2C%20S%C3%A3o%20Gabriel%20-%20RS!5e0!3m2!1spt-BR!2sbr!4v1700000000000"></iframe>
                     </div>
                 </div>
                 <a href="https://maps.google.com/?q=Rua+General+Mallet+100+Sao+Gabriel+RS" target="_blank" class="btn-card-white">Gerar Rota</a>
-            </div>
-
-            <!-- BLOCO 4: WIDGET DO FACEBOOK -->
-            <div class="card card-facebook">
-                <div class="fb-widget-wrapper">
-                    <!-- Lembre-se de trocar os links abaixo para o link da sua página oficial do facebook -->
-                    <div class="fb-page" 
-                        data-href="https://www.facebook.com/clinicaprevitta" 
-                        data-tabs="timeline" 
-                        data-width="340" 
-                        data-height="410" 
-                        data-small-header="true" 
-                        data-adapt-container-width="true" 
-                        data-hide-cover="false" 
-                        data-show-facepile="false">
-                        <blockquote cite="https://www.facebook.com/clinicaprevitta" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/clinicaprevitta">Previtta no Facebook</a>
-                        </blockquote>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -560,7 +630,7 @@
         <p style="margin-top: 10px; color: #64748b;">&copy; 2026 Previtta. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SDK do Facebook integrado para rodar o feed -->
+    <!-- SDK do Facebook -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0"></script>
 
