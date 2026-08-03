@@ -110,14 +110,16 @@
             margin-bottom: 25px;
             display: flex;
             align-items: center;
+            justify-content: center; /* Centraliza ícone e texto no Flexbox */
+            text-align: center;       /* Mantém centralizado em telas menores */
             gap: 10px;
             border-bottom: 2px solid #e5e7eb;
             padding-bottom: 8px;
         }
-
+        
         .section-category h2 i {
             color: var(--primary);
-        }
+        }        }
 
         /* GRADE DE SERVIÇOS (Foco em Leitura de Tópicos) */
         .services-grid {
@@ -307,9 +309,7 @@
         </div>
 
         <section class="section-category">
-            <h2> <style="display: flex; align-items: center; justify-content: center; text-align: center; gap: 10px;">
-                <i class="fa-solid fa-briefcase-medical"></i> Serviços de Gestão Ocupacional e SST 
-            </h2>
+            <h2> <i class="fa-solid fa-briefcase-medical"></i> Serviços de Gestão Ocupacional e SST </h2>
             
             <div class="services-grid">
                 
