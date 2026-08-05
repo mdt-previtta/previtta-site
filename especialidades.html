@@ -118,7 +118,7 @@
 
         .section-category h2 {
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 25px;
             display: flex;
             align-items: center;
@@ -127,6 +127,11 @@
             gap: 10px;
             border-bottom: 2px solid #e5e7eb;
             padding-bottom: 8px;
+        }
+
+       /* Garante que APENAS o ícone dentro do título mantenha a cor principal */
+        .section-category h2 i {
+            color: var(--primary); /* Mantém a cor azul/verde do ícone */
         }
 
         /* AJUSTE NA GRADE: Força todas as linhas a terem a mesma altura dinamicamente */
